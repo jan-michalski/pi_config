@@ -1,0 +1,10 @@
+version: '3'
+services:
+  ghost:
+    image: ghost:alpine
+    ports:
+      - 80:2368
+    environment:
+      - url = http://www.jmich.pl
+    volumes:
+      - /var/lib/ghost/content:/home/pi/ghost/blog
