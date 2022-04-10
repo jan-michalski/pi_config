@@ -1,0 +1,16 @@
+version: '3'
+services:
+    ghost:
+        image: ghost:alpine
+        container_name: ghost
+        volumes:
+          - /home/pi/ghost/blog:/var/lib/ghost/content
+        restart: always 
+    nginx:
+        image: nginx:alpine
+        container_name: nginx_proxy
+        ports:
+          - 80:80
+        volumes:
+          - /home/pi/config/pi_config/nginx.conf:/etc/nginx/nginx.conf
+        restart: always
